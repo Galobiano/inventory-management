@@ -33,7 +33,7 @@ const Login = () => {
   };
   return (
     <main
-      className=""
+      className="min-h-screen"
       style={{
         backgroundImage: `url(${logo})`,
         backgroundSize: "cover",
