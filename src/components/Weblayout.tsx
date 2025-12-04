@@ -1,7 +1,12 @@
-import React from "react";
+import { SidebarProvider } from "@/components/ui/sidebar";
+import SidebarNav from "./SidebarNav";
 
 const Weblayout = () => {
-  return <div></div>;
+  return (
+    <SidebarProvider>
+      <SidebarNav />
+    </SidebarProvider>
+  );
 };
 
 export default Weblayout;
