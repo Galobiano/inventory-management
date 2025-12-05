@@ -1,8 +1,8 @@
-import OverView from "./OverView";
+import OverView from "./overview/OverView";
 
 const Dashboard = () => {
   return (
-    <div>
+    <div className="p-10 ">
       <OverView />
     </div>
   );

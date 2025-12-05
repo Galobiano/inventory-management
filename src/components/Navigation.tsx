@@ -24,7 +24,7 @@ const Navigation: React.FC = () => {
             to={href}
             className={`
                     flex items-center gap-5 p-3 rounded-l-full 
-                    ${isActive ? "bg-[#D9F3FF]  text-black " : "text-muted"}
+                    ${isActive ? "bg-[#D9EAFD]  text-black " : "text-muted"}
                   `}
           >
             <span>
