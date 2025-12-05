@@ -14,7 +14,7 @@ body {
 
 
 :root {
-	--background:  #456882;
+	--background:  #E3E3E3;
 	--foreground: oklch(0.145 0 0);
 	--card: oklch(1 0 0);
 	--card-foreground: oklch(0.145 0 0);

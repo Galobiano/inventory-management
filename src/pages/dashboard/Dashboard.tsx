@@ -1,5 +1,11 @@
+import OverView from "./OverView";
+
 const Dashboard = () => {
-  return <div>Hello Dashboard</div>;
+  return (
+    <div>
+      <OverView />
+    </div>
+  );
 };
 
 export default Dashboard;
