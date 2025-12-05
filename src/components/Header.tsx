@@ -4,6 +4,7 @@ const Header = () => {
   return (
     <div>
       <SidebarTrigger />
+      <span>hello</span>
     </div>
   );
 };
