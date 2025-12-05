@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import logo from "@/assets/inventory.jpg";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -23,6 +24,7 @@ const loginField = [
 ];
 
 const Login = () => {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [formData, setFormData] = useState({
     email: "",
@@ -84,7 +86,10 @@ const Login = () => {
             })}
           </CardContent>
           <div className="flex justify-center mx-7">
-            <Button className="w-full py-5 rounded-full bg-primary text-lg text-white font-bold">
+            <Button
+              className="w-full py-5 rounded-full bg-primary text-lg text-white font-bold"
+              onClick={() => navigate("/dashboard")}
+            >
               LOGIN
             </Button>
           </div>
