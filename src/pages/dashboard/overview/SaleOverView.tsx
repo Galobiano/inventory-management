@@ -2,15 +2,18 @@ import { FaDollarSign } from "react-icons/fa";
 
 const SaleOverView = () => {
   return (
-    <div className=" w-85 rounded-2xl shadow-lg bg-linear-to-r from-[#628141] to-[#BBC863] p-5 text-muted">
+    <div className="w-full flex-1 rounded-2xl shadow-lg p-5 bg-gradient-to-r from-[#628141] to-[#BBC863] text-white">
       <div className="flex flex-col items-center gap-3">
-        <span className="text-4xl text-white ">
+        {/* Icon */}
+        <span className="text-4xl">
           <FaDollarSign />
         </span>
+
+        {/* Total */}
         <span className="text-3xl font-bold">10</span>
-        <label className="text-sm tracking-wide text-neutral-600 font-bold">
-          SALE
-        </label>
+
+        {/* Label */}
+        <label className="text-sm tracking-wide">SALE</label>
       </div>
     </div>
   );

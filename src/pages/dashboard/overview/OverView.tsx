@@ -5,8 +5,8 @@ import SaleOverView from "./SaleOverView";
 
 const OverView = () => {
   return (
-    <main className="bg-white rounded-2xl shadow-lg w-full p-10">
-      <div className="max-w-full flex justify-center gap-10 p-2 ">
+    <main className="bg-white rounded-2xl shadow-lg w-full p-4">
+      <div className=" flex justify-center gap-10 p-2 ">
         <UserOverView />
         <ProductOverView />
         <InventoryOverView />
