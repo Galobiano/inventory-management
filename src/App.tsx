@@ -6,6 +6,7 @@ import UserManagement from "./pages/userManagement/UserManagement";
 import Inventory from "./pages/inventory/Inventory";
 import Product from "./pages/product/Product";
 import Report from "./pages/report/Report";
+import AddUser from "./pages/userManagement/AddUser";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/inventory" element={<Inventory />} />
           <Route path="/product" element={<Product />} />
           <Route path="/reporting" element={<Report />} />
+          <Route path="/add-new-user" element={<AddUser />} />
         </Route>
       </Routes>
     </BrowserRouter>
