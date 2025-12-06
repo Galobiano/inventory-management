@@ -4,8 +4,8 @@ const AddedProducts = () => {
   return (
     <section>
       <div className="flex items-center gap-2 bg-[#8FABD4] p-2 rounded-t-md  border-b-4 border-primary">
-        <FaPlus />
-        <h1 className="text-lg">RECCENTLY ADDED PRODUCTS</h1>
+        <FaPlus className="text-white" />
+        <h1 className="text-lg text-white">RECCENTLY ADDED PRODUCTS</h1>
       </div>
 
       {addedProduct.map((item, index) => (

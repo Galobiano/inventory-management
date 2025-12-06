@@ -3,7 +3,7 @@ import Navigation from "./Navigation";
 
 const SidebarNav = () => {
   return (
-    <Sidebar className="bg-[#0E4A64] text-white border-none">
+    <Sidebar className="w-64 bg-[#0E4A64] text-white border-none">
       <SidebarContent>
         <Navigation />
       </SidebarContent>

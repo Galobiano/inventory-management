@@ -6,7 +6,7 @@ interface UserDetails {
   status: string;
   lastlogin?: string;
 }
-export const user: UserDetails[] = [
+export const userLists: UserDetails[] = [
   {
     no: 1,
     name: "Alvin",

@@ -6,11 +6,18 @@ import Header from "./Header";
 const Weblayout = () => {
   return (
     <SidebarProvider>
-      <SidebarNav />
-      <main>
-        <Header />
-        <Outlet />
-      </main>
+      <div className="flex min-h-screen">
+        {/* Sidebar */}
+        <SidebarNav />
+
+        {/* Main content */}
+        <main className="flex-1 flex flex-col">
+          <Header />
+          <div className="p-5 w-full">
+            <Outlet />
+          </div>
+        </main>
+      </div>
     </SidebarProvider>
   );
 };

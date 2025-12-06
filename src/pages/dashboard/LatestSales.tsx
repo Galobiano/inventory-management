@@ -14,7 +14,7 @@ const label = ["#", "Product Name", "Date", "Total Sale"];
 const LatestSales = () => {
   return (
     <section className="  shadow-lg rounded-md">
-      <div className="flex items-center gap-2 bg-[#8FABD4] p-2 rounded-t-md  border-b-4 border-primary">
+      <div className="flex items-center gap-2 bg-[#8FABD4] p-2 text-white rounded-t-md  border-b-4 border-primary">
         <span>
           <BiSolidBarChartAlt2 />
         </span>
