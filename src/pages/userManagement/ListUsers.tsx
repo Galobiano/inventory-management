@@ -3,8 +3,7 @@ import { userLists } from "@/contants/user";
 import { FaThList } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
 import { HiOutlineXCircle } from "react-icons/hi";
-import { Button } from "@/components/ui/button";
-import { useNavigate } from "react-router-dom";
+import AddUser from "./AddUser";
 
 import {
   Table,
@@ -26,7 +25,6 @@ const labels = [
 ];
 
 const ListUsers = () => {
-  const navigate = useNavigate();
   return (
     <section className="w-full shadow-lg rounded-md overflow-x-auto">
       {/* Header */}
@@ -35,12 +33,7 @@ const ListUsers = () => {
           <FaThList className="text-white" />
           <h1 className="text-lg text-white font-semibold">USER MANAGEMENT</h1>
         </div>
-        <Button
-          className="mr-2 font-bold"
-          onClick={() => navigate("/add-new-user")}
-        >
-          Add New User
-        </Button>
+        <AddUser />
       </header>
 
       {/* Table */}
