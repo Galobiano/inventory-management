@@ -7,7 +7,18 @@ import {
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import SelectRolesUser from "./SelectRolesUser";
+import SelectItems from "@/components/SelectItems";
+
+const Roles = [
+  {
+    value: "admin",
+    label: "Admin",
+  },
+  {
+    value: "user",
+    label: "User",
+  },
+];
 
 const AddUser = () => {
   return (
@@ -35,7 +46,7 @@ const AddUser = () => {
             </div>
             <div className="flex flex-col gap-2">
               <Label className="font-bold">User Role</Label>
-              <SelectRolesUser />
+              <SelectItems items={Roles} text="roles" />
             </div>
           </form>
           <DialogFooter className="flex justify-start">
