@@ -5,16 +5,18 @@ import AddCategory from "./AddCategory";
 
 const Product = () => {
   return (
-    <section className="bg-white w-full ">
-      <div className="flex items-center p-10">
-        <SearchProduct />
-        <AddCategory />
-        <AddProduct />
-      </div>
-      <div>
-        <ListProduct />
-      </div>
-    </section>
+    <main className="pt-20">
+      <section className="bg-white w-full rounded-2xl ">
+        <div className="flex items-center gap-10 p-10">
+          <SearchProduct />
+          <AddCategory />
+          <AddProduct />
+        </div>
+        <div>
+          <ListProduct />
+        </div>
+      </section>
+    </main>
   );
 };
 

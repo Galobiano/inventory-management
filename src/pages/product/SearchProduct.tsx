@@ -4,7 +4,7 @@ const SearchProduct = () => {
       <label className="input flex items-center p-2">
         <input type="search" required placeholder="Search" className="" />
       </label>
-      <div className="flex justify-end items-center pr-2">
+      <div className="flex w-full justify-end items-center pr-5">
         <svg
           className="h-[1em] opacity-50"
           xmlns="http://www.w3.org/2000/svg"
