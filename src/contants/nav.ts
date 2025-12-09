@@ -1,8 +1,4 @@
-import {
-  MdDashboard,
-  MdOutlineProductionQuantityLimits,
-  MdInventory,
-} from "react-icons/md";
+import { MdDashboard, MdOutlineProductionQuantityLimits } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
 import { BsBarChartFill } from "react-icons/bs";
 import { IconType } from "react-icons";
@@ -16,7 +12,6 @@ interface NavItem {
 export const navItem: NavItem[] = [
   { label: "Dashboard", href: "/dashboard", icon: MdDashboard },
   { label: "User Management", href: "/user-management", icon: FaUser },
-  { label: "Inventory", href: "/inventory", icon: MdInventory },
   {
     label: "Product",
     href: "/product",

@@ -3,7 +3,6 @@ import Login from "./pages/Login";
 import Weblayout from "./components/Weblayout";
 import Dashboard from "./pages/dashboard/Dashboard";
 import UserManagement from "./pages/userManagement/UserManagement";
-import Inventory from "./pages/inventory/Inventory";
 import Product from "./pages/product/Product";
 import Report from "./pages/report/Report";
 
@@ -16,7 +15,6 @@ function App() {
         <Route element={<Weblayout />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/user-management" element={<UserManagement />} />
-          <Route path="/inventory" element={<Inventory />} />
           <Route path="/product" element={<Product />} />
           <Route path="/reporting" element={<Report />} />
         </Route>
