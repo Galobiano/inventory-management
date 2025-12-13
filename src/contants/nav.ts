@@ -17,5 +17,5 @@ export const navItem: NavItem[] = [
     href: "/product",
     icon: MdOutlineProductionQuantityLimits,
   },
-  { label: "Reporting", href: "/reporting", icon: BsBarChartFill },
+  { label: "Sale Report", href: "/sale-report", icon: BsBarChartFill },
 ];

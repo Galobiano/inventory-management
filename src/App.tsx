@@ -4,7 +4,7 @@ import Weblayout from "./components/Weblayout";
 import Dashboard from "./pages/dashboard/Dashboard";
 import UserManagement from "./pages/userManagement/UserManagement";
 import Product from "./pages/product/Product";
-import Report from "./pages/report/Report";
+import SaleReport from "./pages/report/SaleReport";
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/user-management" element={<UserManagement />} />
           <Route path="/product" element={<Product />} />
-          <Route path="/reporting" element={<Report />} />
+          <Route path="/sale-report" element={<SaleReport />} />
         </Route>
       </Routes>
     </BrowserRouter>
