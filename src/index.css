@@ -11,6 +11,25 @@ body {
 
 }
 
+.Toastify__toast--success,
+.Toastify__toast--error,
+.Toastify__toast--info,
+.Toastify__toast--warning {
+  font-size: 14px !important;  
+  font-weight: 500;             
+  padding: 8px 16px !important; 
+}
+
+.Toastify__toast-body {
+  margin: 0;
+  padding: 0;
+}
+
+.custom-toast {
+  font-size: 14px;
+  padding: 8px 16px;
+  line-height: 1.3;
+}
 
 
 :root {
