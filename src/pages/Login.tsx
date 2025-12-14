@@ -5,6 +5,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Mail, Lock, EyeClosed, EyeOff } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { toast } from "react-toastify";
+
+// auth
+import { useAuth } from "@/context/AuthContext";
 
 const loginField = [
   {
@@ -25,13 +29,34 @@ const loginField = [
 
 const Login = () => {
   const navigate = useNavigate();
+  const { login, isLoading } = useAuth();
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleLogin = async () => {
+    if (!formData.email || !formData.password) {
+      toast.error("Email and password are required");
+      return;
+    }
+
+    try {
+      await login({
+        username: formData.email,
+        password: formData.password,
+      });
+
+      toast.success("Login successful");
+      navigate("/dashboard");
+    } catch (error) {
+      toast.error("Invalid email or password");
+    }
   };
   return (
     <main
@@ -88,9 +113,10 @@ const Login = () => {
           <div className="flex justify-center mx-7">
             <Button
               className="w-full py-5 rounded-full bg-primary text-lg text-white font-bold"
-              onClick={() => navigate("/dashboard")}
+              onClick={handleLogin}
+              disabled={isLoading}
             >
-              LOGIN
+              {isLoading ? "Logging in..." : "LOGIN"}
             </Button>
           </div>
         </Card>
