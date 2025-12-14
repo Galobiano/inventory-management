@@ -5,13 +5,15 @@ export interface Ilogin {
 
 export interface IAuthResponse {
   success: boolean;
+  message: string;
   token: string;
 }
 
+// ProvideProps is the blueprint (aka rulebook / checklist) for your AuthContext.
+// It does NOT store data.
 export interface ProvideProps {
-  user: null;
   isAuthenticated: boolean | null;
-  token: string;
+  token: string | null;
   login: (data: Ilogin) => Promise<unknown>;
   logout(): void;
   isLoading: boolean;
