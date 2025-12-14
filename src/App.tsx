@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import Login from "./pages/Login";
 import Weblayout from "./components/Weblayout";
 import Dashboard from "./pages/dashboard/Dashboard";
@@ -11,6 +12,17 @@ function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop
+          closeOnClick
+          pauseOnHover
+          draggable
+          theme="colored"
+          toastClassName="custom-toast"
+        />
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/login" element={<Login />} />
