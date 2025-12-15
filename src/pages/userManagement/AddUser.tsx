@@ -12,11 +12,11 @@ import SelectItems from "@/components/SelectItems";
 const Roles = [
   {
     value: "admin",
-    label: "Admin",
+    label: "admin",
   },
   {
     value: "user",
-    label: "User",
+    label: "user",
   },
 ];
 
