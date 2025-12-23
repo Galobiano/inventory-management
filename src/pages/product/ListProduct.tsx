@@ -1,11 +1,15 @@
 import Columns from "@/components/Columns";
-import { product } from "@/contants/productData";
 import DataTable from "@/components/DataTable";
+import { IModel } from "@/types";
 
-const ListProduct = () => {
+interface ListProductProps {
+  products: IModel.IGETPRODUCT[];
+}
+
+const ListProduct: React.FC<ListProductProps> = ({ products = [] }) => {
   return (
-    <div>
-      <DataTable columns={Columns} data={product} />
+    <div className="p-5">
+      <DataTable columns={Columns} data={products} />
     </div>
   );
 };

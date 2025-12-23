@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-
 import {
   ColumnDef,
   flexRender,
@@ -37,29 +36,28 @@ export function DataTable<TData, TValue>({
       rowSelection,
     },
   });
+
   return (
     <div className="overflow-hidden rounded-md border p-5">
       <Table className="w-full table-fixed min-w-full">
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id}>
-              {headerGroup.headers.map((header) => {
-                return (
-                  <TableHead key={header.id}>
-                    {header.isPlaceholder
-                      ? null
-                      : flexRender(
-                          header.column.columnDef.header,
-                          header.getContext()
-                        )}
-                  </TableHead>
-                );
-              })}
+              {headerGroup.headers.map((header) => (
+                <TableHead key={header.id}>
+                  {header.isPlaceholder
+                    ? null
+                    : flexRender(
+                        header.column.columnDef.header,
+                        header.getContext()
+                      )}
+                </TableHead>
+              ))}
             </TableRow>
           ))}
         </TableHeader>
         <TableBody>
-          {table.getRowModel().rows?.length ? (
+          {table.getRowModel().rows.length ? (
             table.getRowModel().rows.map((row) => (
               <TableRow
                 key={row.id}
@@ -84,4 +82,5 @@ export function DataTable<TData, TValue>({
     </div>
   );
 }
+
 export default DataTable;

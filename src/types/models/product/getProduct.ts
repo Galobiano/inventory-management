@@ -3,7 +3,7 @@ export interface IGETPRODUCT {
   name: string;
   image: string;
   quantity: number;
-  price: number;
+  total: number;
 }
 export interface IGETPRODUCTRESPONSE {
   success: boolean;
