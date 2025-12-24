@@ -5,6 +5,9 @@ import { MdEdit } from "react-icons/md";
 import { HiOutlineXCircle } from "react-icons/hi";
 import AddUser from "./AddUser";
 
+// hook
+import { useGetProducts } from "@/hooks/users/getUsers";
+
 import {
   Table,
   TableBody,
@@ -15,7 +18,6 @@ import {
 } from "@/components/ui/table";
 
 const labels = [
-  "#",
   "Name",
   "Username",
   "User Role",
@@ -25,6 +27,8 @@ const labels = [
 ];
 
 const ListUsers = () => {
+  const { data: users } = useGetProducts();
+
   return (
     <section className="w-full shadow-lg rounded-md overflow-x-auto">
       {/* Header */}
@@ -50,14 +54,15 @@ const ListUsers = () => {
           </TableHeader>
 
           <TableBody>
-            {userLists.map((item, index) => (
+            {users?.map((item, index) => (
               <TableRow key={index} className="hover:bg-gray-100">
-                <TableCell className="px-15">{item.no}</TableCell>
                 <TableCell className="px-15">{item.name}</TableCell>
                 <TableCell className="px-15">{item.username}</TableCell>
-                <TableCell className="px-15">{item.userrole}</TableCell>
+                <TableCell className="px-15">{item.role}</TableCell>
                 <TableCell className="px-15">{item.status}</TableCell>
-                <TableCell className="">{item.lastlogin}</TableCell>
+                <TableCell className="px-18">
+                  {item.last_login || "--"}
+                </TableCell>
                 <TableCell className="px-15 flex gap-2">
                   <MdEdit className="cursor-pointer text-[1.2rem] text-blue-500" />
                   <HiOutlineXCircle className="cursor-pointer text-[1.2rem] text-red-500" />
