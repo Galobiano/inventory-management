@@ -1,28 +1,39 @@
+import { useEffect, useState } from "react";
 import AddProduct from "./AddProduct";
 import SearchProduct from "./SearchProduct";
 import ListProduct from "./ListProduct";
 import AddCategory from "./AddCategory";
-
-// hook
 import { useGetProducts } from "@/hooks/product/getProduct";
 
 const Product = () => {
-  const { data: products, isLoading } = useGetProducts();
+  const [search, setSearch] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState("");
 
-  if (isLoading) {
-    return <div className="p-5">Loading products...</div>;
-  }
+  // 🔹 debounce typing
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearch(search);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [search]);
+
+  const { data: products, isLoading } = useGetProducts(debouncedSearch);
+
   return (
     <main className="pt-20">
-      <section className="bg-white w-full rounded-2xl ">
+      <section className="bg-white w-full rounded-2xl">
         <div className="flex items-center gap-10 p-10">
-          <SearchProduct />
+          <SearchProduct value={search} onChange={setSearch} />
           <AddCategory />
           <AddProduct />
         </div>
-        <div>
+
+        {isLoading ? (
+          <div className="p-5">Loading products...</div>
+        ) : (
           <ListProduct products={products ?? []} />
-        </div>
+        )}
       </section>
     </main>
   );

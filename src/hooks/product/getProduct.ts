@@ -13,11 +13,14 @@ export const useGetProducts = (search: string = "") => {
         search: search === "" ? "*" : search,
       },
     });
+
     return response.data;
   };
 
   return useQuery({
     queryKey: ["products", search],
     queryFn: fetchProducts,
+    placeholderData: (previousData) => previousData,
+    staleTime: 5000,
   });
 };
