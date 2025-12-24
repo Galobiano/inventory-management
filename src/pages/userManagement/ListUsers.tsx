@@ -1,5 +1,4 @@
 // ListUsers.tsx
-import { userLists } from "@/contants/user";
 import { FaThList } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
 import { HiOutlineXCircle } from "react-icons/hi";
