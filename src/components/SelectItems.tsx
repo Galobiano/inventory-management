@@ -1,33 +1,30 @@
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+type SelectItem = {
+  value: string;
+  label: string;
+};
 
-interface props {
-  items: { value: string; label: string }[];
+type SelectItemsProps = {
+  items: SelectItem[];
   text: string;
-}
+  value: string;
+  onChange: (value: string) => void;
+};
 
-const SelectItems: React.FC<props> = ({ items, text }) => {
+const SelectItems = ({ items, text, value, onChange }: SelectItemsProps) => {
   return (
-    <div>
-      <Select>
-        <SelectTrigger className="w-full">
-          <SelectValue placeholder={text} />
-        </SelectTrigger>
+    <select
+      className="border rounded-lg p-2"
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+    >
+      <option value="">Select {text}</option>
 
-        <SelectContent>
-          {items.map((item) => (
-            <SelectItem key={item.value} value={item.value}>
-              {item.label}
-            </SelectItem>
-          ))}
-        </SelectContent>
-      </Select>
-    </div>
+      {items.map((item) => (
+        <option key={item.value} value={item.value}>
+          {item.label}
+        </option>
+      ))}
+    </select>
   );
 };
 
