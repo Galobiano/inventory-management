@@ -8,6 +8,7 @@ import {
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { toast } from "react-toastify";
 import SelectItems from "@/components/SelectItems";
 
 // hook
@@ -43,7 +44,7 @@ const AddUser = () => {
     e.preventDefault();
     try {
       await mutateAsync(form);
-      alert("User added successfully");
+      toast.success("User added successfully");
 
       setForm({
         name: "",
@@ -52,7 +53,7 @@ const AddUser = () => {
         role: "",
       });
     } catch (error) {
-      alert("Failed to add user");
+      toast.error("Failed to add user");
     }
   };
 
