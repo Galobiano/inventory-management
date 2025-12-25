@@ -1,10 +1,14 @@
 // ListUsers.tsx
 import { FaThList } from "react-icons/fa";
 import { HiOutlineXCircle } from "react-icons/hi";
+import { Button } from "@/components/ui/button";
+import { toast } from "react-toastify";
+
 import AddUser from "./AddUser";
 
 // hook
 import { useGetProducts } from "@/hooks/users/getUsers";
+import { useDeleteUser } from "@/hooks/users/deleteUser";
 
 import {
   Table,
@@ -26,7 +30,16 @@ const labels = [
 
 const ListUsers = () => {
   const { data: users } = useGetProducts();
+  const { mutateAsync: deleteUser, isPending } = useDeleteUser();
 
+  const handleDelete = async (id: number) => {
+    try {
+      await deleteUser(id);
+      toast.success("User deleted successfully");
+    } catch (error) {
+      toast.error("Failed to delete user");
+    }
+  };
   return (
     <section className="w-full shadow-lg rounded-md overflow-x-auto">
       {/* Header */}
@@ -61,10 +74,16 @@ const ListUsers = () => {
                 <TableCell className="px-18">
                   {item.last_login || "--"}
                 </TableCell>
-                <TableCell className="px-15 flex gap-2">
-                  <button className="cursor-pointer text-[1.2rem] text-red-500">
+                <TableCell className="px-12 flex gap-2">
+                  {/* <button className="cursor-pointer text-[1.2rem] text-red-500">
                     <HiOutlineXCircle />
-                  </button>
+                  </button> */}
+                  <Button
+                    variant="destructive"
+                    onClick={() => handleDelete(item.id)}
+                  >
+                    {isPending ? "Deleting..." : "Delete"}
+                  </Button>
                 </TableCell>
               </TableRow>
             ))}

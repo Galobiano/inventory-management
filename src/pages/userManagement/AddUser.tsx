@@ -9,11 +9,11 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { toast } from "react-toastify";
+import { IModel } from "@/types";
 import SelectItems from "@/components/SelectItems";
 
 // hook
 import { useAddUser } from "@/hooks/users/addUser";
-import { IModel } from "@/types";
 
 const Roles = [
   {
