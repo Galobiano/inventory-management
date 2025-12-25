@@ -63,8 +63,9 @@ const ListUsers = () => {
                   {item.last_login || "--"}
                 </TableCell>
                 <TableCell className="px-15 flex gap-2">
-                  <MdEdit className="cursor-pointer text-[1.2rem] text-blue-500" />
-                  <HiOutlineXCircle className="cursor-pointer text-[1.2rem] text-red-500" />
+                  <button className="cursor-pointer text-[1.2rem] text-red-500">
+                    <HiOutlineXCircle />
+                  </button>
                 </TableCell>
               </TableRow>
             ))}
