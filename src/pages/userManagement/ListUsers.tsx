@@ -1,6 +1,5 @@
 // ListUsers.tsx
 import { FaThList } from "react-icons/fa";
-import { HiOutlineXCircle } from "react-icons/hi";
 import { Button } from "@/components/ui/button";
 import { toast } from "react-toastify";
 
