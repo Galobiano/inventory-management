@@ -1,10 +1,12 @@
 import { Sidebar, SidebarContent } from "./ui/sidebar";
+import Profile from "@/pages/profile/Profile";
 import Navigation from "./Navigation";
 
 const SidebarNav = () => {
   return (
-    <Sidebar className="w-64 bg-[#0E4A64] text-white border-none">
-      <SidebarContent>
+    <Sidebar className="bg-[#0E4A64] text-white border-none">
+      <SidebarContent className="">
+        <Profile />
         <Navigation />
       </SidebarContent>
     </Sidebar>

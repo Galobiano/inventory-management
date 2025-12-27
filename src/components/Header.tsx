@@ -2,9 +2,9 @@ import { SidebarTrigger } from "./ui/sidebar";
 
 const Header = () => {
   return (
-    <div>
+    <div className="pl-3 items-center flex pt-5 gap-2">
       <SidebarTrigger />
-      <span>hello</span>
+      <span className="font-bold text-2xl">WELCOME ADMIN!</span>
     </div>
   );
 };

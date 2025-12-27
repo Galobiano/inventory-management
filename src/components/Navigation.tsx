@@ -14,7 +14,7 @@ const Navigation: React.FC = () => {
       : navItem.filter((item) => ["Inventory", "Product"].includes(item.label));
 
   return (
-    <nav className="flex flex-col pl-5 py-10 space-y-2">
+    <nav className="flex flex-col pl-5 py-5 space-y-2">
       {filteredNav.map(({ label, href, icon: Icon }) => {
         const isActive = currentPath === href;
 
