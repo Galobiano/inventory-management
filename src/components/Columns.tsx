@@ -13,7 +13,13 @@ export interface ProductDetails {
   total: number;
 }
 
-export const Columns: ColumnDef<ProductDetails>[] = [
+type ColumnsProps = {
+  handleDelete: (id: number) => Promise<void>;
+};
+
+const Columns = ({
+  handleDelete,
+}: ColumnsProps): ColumnDef<ProductDetails>[] => [
   {
     accessorKey: "image",
     header: ({ table }) => (
@@ -31,6 +37,7 @@ export const Columns: ColumnDef<ProductDetails>[] = [
           checked={row.getIsSelected()}
           onCheckedChange={(value) => row.toggleSelected(!!value)}
         />
+
         <img
           src={
             row.original.image
@@ -54,18 +61,28 @@ export const Columns: ColumnDef<ProductDetails>[] = [
     header: "Total",
   },
   {
-    accessorKey: "id",
+    id: "actions",
     header: "Action",
-    cell: ({ row }) => (
-      <div className="flex items-center gap-2">
-        <Button>
-          <Pencil /> Edit
-        </Button>
-        <Button variant="destructive">
-          <Trash2 />
-        </Button>
-      </div>
-    ),
+    cell: ({ row }) => {
+      const id = row.original.id;
+
+      return (
+        <div className="flex items-center gap-2">
+          <Button size="sm" variant="outline">
+            <Pencil className="h-4 w-4 mr-1" />
+            Edit
+          </Button>
+
+          <Button
+            size="sm"
+            variant="destructive"
+            onClick={() => handleDelete(id)}
+          >
+            <Trash2 className="h-4 w-4" />
+          </Button>
+        </div>
+      );
+    },
   },
 ];
 

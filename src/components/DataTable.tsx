@@ -19,6 +19,7 @@ import {
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
+  handleDelete?: (id: number) => Promise<void>;
 }
 
 export function DataTable<TData, TValue>({

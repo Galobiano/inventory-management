@@ -1,14 +1,17 @@
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import AddProduct from "./AddProduct";
 import SearchProduct from "./SearchProduct";
 import ListProduct from "./ListProduct";
 import AddCategory from "./AddCategory";
 
 import { useGetProducts } from "@/hooks/product/getProduct";
+import { useDeleteProduct } from "@/hooks/product/deleteProduct";
 
 const Product = () => {
   const [search, setSearch] = useState("");
   const [debouncedSearch, setDebouncedSearch] = useState("");
+  const { mutateAsync: deleteProduct } = useDeleteProduct();
 
   // 🔹 debounce typing
   useEffect(() => {
@@ -18,6 +21,15 @@ const Product = () => {
 
     return () => clearTimeout(timer);
   }, [search]);
+
+  const handleDelete = async (id: number) => {
+    try {
+      await deleteProduct(id);
+      toast.success("Product deleted successfully");
+    } catch (error) {
+      toast.error("Failed to delete product");
+    }
+  };
 
   const { data: products, isLoading } = useGetProducts(debouncedSearch);
 
@@ -33,7 +45,7 @@ const Product = () => {
         {isLoading ? (
           <div className="p-5">Loading products...</div>
         ) : (
-          <ListProduct products={products ?? []} />
+          <ListProduct products={products ?? []} handleDelete={handleDelete} />
         )}
       </section>
     </main>

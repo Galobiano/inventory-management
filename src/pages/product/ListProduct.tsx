@@ -4,12 +4,16 @@ import { IModel } from "@/types";
 
 interface ListProductProps {
   products: IModel.IGETPRODUCT[];
+  handleDelete: (id: number) => Promise<void>;
 }
 
-const ListProduct: React.FC<ListProductProps> = ({ products = [] }) => {
+const ListProduct: React.FC<ListProductProps> = ({
+  products = [],
+  handleDelete,
+}) => {
   return (
     <div className="p-5">
-      <DataTable columns={Columns} data={products} />
+      <DataTable columns={Columns({ handleDelete })} data={products} />
     </div>
   );
 };
