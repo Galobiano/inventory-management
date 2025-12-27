@@ -16,7 +16,6 @@ class HttpService {
     this.http = axios.create({
       baseURL: this.baseUrl,
       withCredentials: false,
-      headers: this.setUpHeader(),
     });
   }
 
@@ -30,9 +29,11 @@ class HttpService {
       : {};
   }
 
+  // Content-Type = What format is my data?
+  // application/json = The data is JSON (text)
   private setUpHeader(hasAttachment = false) {
     return hasAttachment
-      ? { "Content-Type": "multipart/form-data", ...this.getAuthorization }
+      ? { ...this.getAuthorization }
       : { "Content-Type": "application/json", ...this.getAuthorization };
   }
 

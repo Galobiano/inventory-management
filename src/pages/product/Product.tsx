@@ -3,6 +3,7 @@ import AddProduct from "./AddProduct";
 import SearchProduct from "./SearchProduct";
 import ListProduct from "./ListProduct";
 import AddCategory from "./AddCategory";
+
 import { useGetProducts } from "@/hooks/product/getProduct";
 
 const Product = () => {
