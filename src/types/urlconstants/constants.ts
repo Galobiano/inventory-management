@@ -11,3 +11,4 @@ export const ADD_PRODUCT = "product/add-product.php";
 
 // DELETE
 export const DELETE_USER = "user/delete-user.php";
+export const DELETE_PRODUCT = "product/delete-product.php";
