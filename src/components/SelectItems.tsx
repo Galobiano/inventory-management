@@ -1,27 +1,25 @@
-type SelectItem = {
-  value: string;
-  label: string;
-};
+import { IModel } from "@/types";
 
 type SelectItemsProps = {
-  items: SelectItem[];
-  text: string;
+  items?: IModel.IGETCATEGORIES[];
   value: string;
   onChange: (value: string) => void;
 };
 
-const SelectItems = ({ items, text, value, onChange }: SelectItemsProps) => {
+const SelectItems = ({ items = [], value, onChange }: SelectItemsProps) => {
   return (
     <select
       className="border rounded-lg p-2"
       value={value}
       onChange={(e) => onChange(e.target.value)}
     >
-      <option value="">Select {text}</option>
+      <option value="" disabled>
+        Select category
+      </option>
 
       {items.map((item) => (
-        <option key={item.value} value={item.value}>
-          {item.label}
+        <option key={item.id} value={item.id}>
+          {item.name}
         </option>
       ))}
     </select>
