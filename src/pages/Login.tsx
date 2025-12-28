@@ -12,9 +12,9 @@ import { useAuth } from "@/context/AuthContext";
 
 const loginField = [
   {
-    name: "email",
+    name: "username",
     type: "text",
-    placeholder: "email",
+    placeholder: "username",
     icon: Mail,
     isPassword: false,
   },
