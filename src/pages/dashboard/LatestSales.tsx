@@ -18,7 +18,7 @@ const LatestSales = () => {
         <span>
           <BiSolidBarChartAlt2 />
         </span>
-        <h1 className="text-lg">HIGHEST SELLING PRODUCTS</h1>
+        <h1 className="text-lg">LATEST SALES</h1>
       </div>
 
       <div className="bg-white p-5  rounded-b-md">

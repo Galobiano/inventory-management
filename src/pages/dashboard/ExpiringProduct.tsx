@@ -24,7 +24,7 @@ const ExpiringProduct = () => {
         <span>
           <RiPassExpiredFill />
         </span>
-        <h1 className="text-lg">HIGHEST SELLING PRODUCTS</h1>
+        <h1 className="text-lg">EXPIRING PRODUCTS</h1>
       </div>
 
       <div className="bg-white p-5  rounded-b-md">
