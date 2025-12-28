@@ -7,6 +7,7 @@ import UserManagement from "./pages/userManagement/UserManagement";
 import Product from "./pages/product/Product";
 import SaleReport from "./pages/report/SaleReport";
 import AuthProvider from "./context/AuthContext";
+import ProfilePage from "./pages/profile/ProfilePage";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/login" element={<Login />} />
           <Route element={<Weblayout />}>
+            <Route path="/profile" element={<ProfilePage />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/user-management" element={<UserManagement />} />
             <Route path="/product" element={<Product />} />
