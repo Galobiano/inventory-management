@@ -6,7 +6,7 @@ import LatestSales from "./LatestSales";
 
 const Dashboard = () => {
   return (
-    <div className="p-10 ">
+    <div className="pt-10">
       <OverView />
       <div className="grid lg:grid-cols-3 gap-10 pt-10">
         <div className="bg-white     p-5 shadow-2xl rounded-2xl">

@@ -62,13 +62,13 @@ const Columns = ({
   },
   {
     id: "actions",
-    header: "Action",
+    header: () => <div className="text-right mr-10">Action</div>,
     cell: ({ row }) => {
       const id = row.original.id;
 
       return (
-        <div className="flex items-center gap-2">
-          <Button size="sm" variant="outline">
+        <div className="flex gap-3 justify-end">
+          <Button size="sm" variant="outline" className="mr-0">
             <Pencil className="h-4 w-4 mr-1" />
             Edit
           </Button>
@@ -76,6 +76,7 @@ const Columns = ({
           <Button
             size="sm"
             variant="destructive"
+            className="ml-0"
             onClick={() => handleDelete(id)}
           >
             <Trash2 className="h-4 w-4" />

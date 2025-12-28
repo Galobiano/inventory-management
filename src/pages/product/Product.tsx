@@ -5,6 +5,8 @@ import SearchProduct from "./SearchProduct";
 import ListProduct from "./ListProduct";
 import AddCategory from "./AddCategory";
 
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+
 import { useGetProducts } from "@/hooks/product/getProduct";
 import { useDeleteProduct } from "@/hooks/product/deleteProduct";
 
@@ -35,19 +37,24 @@ const Product = () => {
 
   return (
     <main className="pt-20">
-      <section className="bg-white w-full rounded-2xl">
-        <div className="flex items-center gap-10 p-10">
+      <Card className="bg-white w-full rounded-2xl">
+        <CardHeader className="flex items-center gap-10 pt-5">
           <SearchProduct value={search} onChange={setSearch} />
           <AddCategory />
           <AddProduct />
-        </div>
+        </CardHeader>
 
-        {isLoading ? (
-          <div className="p-5">Loading products...</div>
-        ) : (
-          <ListProduct products={products ?? []} handleDelete={handleDelete} />
-        )}
-      </section>
+        <CardContent>
+          {isLoading ? (
+            <div className="p-5">Loading products...</div>
+          ) : (
+            <ListProduct
+              products={products ?? []}
+              handleDelete={handleDelete}
+            />
+          )}
+        </CardContent>
+      </Card>
     </main>
   );
 };

@@ -6,7 +6,7 @@ import Header from "./Header";
 const Weblayout = () => {
   return (
     <SidebarProvider>
-      <div className="flex min-h-screen">
+      <div className="flex min-h-screen w-full">
         {/* Sidebar */}
 
         <SidebarNav />
@@ -14,7 +14,7 @@ const Weblayout = () => {
         {/* Main content */}
         <main className="flex-1 flex flex-col">
           <Header />
-          <div className="p-5 w-full">
+          <div className="p-5 ">
             <Outlet />
           </div>
         </main>
