@@ -32,7 +32,7 @@ const Login = () => {
   const { login, isLoading } = useAuth();
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [formData, setFormData] = useState({
-    email: "",
+    username: "",
     password: "",
   });
 
@@ -41,21 +41,21 @@ const Login = () => {
   };
 
   const handleLogin = async () => {
-    if (!formData.email || !formData.password) {
-      toast.error("Email and password are required");
+    if (!formData.username || !formData.password) {
+      toast.error("Username and password are required");
       return;
     }
 
     try {
       await login({
-        username: formData.email,
+        username: formData.username,
         password: formData.password,
       });
 
       toast.success("Login successful");
       navigate("/dashboard");
     } catch (error) {
-      toast.error("Invalid email or password");
+      toast.error("Invalid username or password");
     }
   };
   return (
@@ -91,7 +91,7 @@ const Login = () => {
                       isPass ? (showPassword ? "text" : "password") : field.type
                     }
                     placeholder={field.placeholder}
-                    value={formData[field.name as "email" | "password"]}
+                    value={formData[field.name as "username" | "password"]}
                     onChange={handleChange}
                     className="pl-10"
                   />
