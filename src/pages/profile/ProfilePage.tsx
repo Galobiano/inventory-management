@@ -16,8 +16,8 @@ const labelProfile = [
 ];
 const ProfilePage = () => {
   return (
-    <div className="w-full flex justify-center">
-      <Card className="w-full max-w-6xl mx-auto mt-10 space-y-6 py-10">
+    <div className="min-h-screen  py-10 px-5">
+      <Card className="w-full mt-10 space-y-6 py-10">
         <CardHeader>
           <CardTitle className="text-2xl">Profile Information</CardTitle>
           <CardDescription>Manage your profile information</CardDescription>

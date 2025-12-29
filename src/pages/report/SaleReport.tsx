@@ -1,5 +1,158 @@
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { latestSale } from "@/contants/latestsellingData";
+import { highestSelling } from "@/contants/highestsellingData";
+import {
+  FaDollarSign,
+  FaShoppingCart,
+  FaChartLine,
+  FaCalendarAlt,
+} from "react-icons/fa";
+
 const SaleReport = () => {
-  return <div>Hello Report</div>;
+  // Calculate summary statistics
+  const totalSales = latestSale.reduce(
+    (sum, sale) => sum + parseFloat(sale.totalSale),
+    0
+  );
+  const totalTransactions = latestSale.length;
+  const averageSale = totalSales / totalTransactions;
+
+  const summaryCards = [
+    {
+      title: "Total Sales",
+      value: `₱${totalSales.toLocaleString()}`,
+      icon: <FaDollarSign className="text-2xl" />,
+      color: "from-green-500 to-green-600",
+    },
+    {
+      title: "Total Transactions",
+      value: totalTransactions.toString(),
+      icon: <FaShoppingCart className="text-2xl" />,
+      color: "from-blue-500 to-blue-600",
+    },
+    {
+      title: "Average Sale",
+      value: `₱${averageSale.toFixed(2)}`,
+      icon: <FaChartLine className="text-2xl" />,
+      color: "from-purple-500 to-purple-600",
+    },
+    {
+      title: "This Month",
+      value: "February 2025",
+      icon: <FaCalendarAlt className="text-2xl" />,
+      color: "from-orange-500 to-orange-600",
+    },
+  ];
+
+  return (
+    <div className="w-full space-y-6">
+      <div className="flex items-center justify-between">
+        <p className="text-gray-600">
+          Comprehensive sales analytics and insights
+        </p>
+      </div>
+
+      {/* Summary Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {summaryCards.map((card, index) => (
+          <Card
+            key={index}
+            className={`bg-gradient-to-r ${card.color} text-white border-0`}
+          >
+            <CardContent className="p-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm font-medium opacity-90">{card.title}</p>
+                  <p className="text-2xl font-bold">{card.value}</p>
+                </div>
+                <div className="opacity-80">{card.icon}</div>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+
+      {/* Recent Sales */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Recent Sales</CardTitle>
+          <CardDescription>Latest sales transactions</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>#</TableHead>
+                <TableHead>Product Name</TableHead>
+                <TableHead>Date</TableHead>
+                <TableHead className="text-right">Total Sale</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {latestSale.map((sale) => (
+                <TableRow key={sale.no}>
+                  <TableCell className="font-medium">{sale.no}</TableCell>
+                  <TableCell>{sale.productName}</TableCell>
+                  <TableCell>{sale.date}</TableCell>
+                  <TableCell className="text-right font-medium">
+                    ₱{sale.totalSale}
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </CardContent>
+      </Card>
+
+      {/* Top Selling Products */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Top Selling Products</CardTitle>
+          <CardDescription>
+            Best performing products by sales volume
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Product Name</TableHead>
+                <TableHead className="text-right">Total Sold</TableHead>
+                <TableHead className="text-right">Remaining Stock</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {highestSelling.map((product, index) => (
+                <TableRow key={index}>
+                  <TableCell className="font-medium">{product.title}</TableCell>
+                  <TableCell className="text-right">
+                    {product.totalSold}
+                  </TableCell>
+                  <TableCell className="text-right">
+                    {product.TotalQuantity}
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </CardContent>
+      </Card>
+    </div>
+  );
 };
 
 export default SaleReport;
