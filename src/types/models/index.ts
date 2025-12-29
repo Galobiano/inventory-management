@@ -8,3 +8,6 @@ export * from "./user/addUser";
 // CATEGORY
 export * from "./category/addCategory";
 export * from "./category/getCategories";
+
+// SALES
+export * from "./sales/index";
