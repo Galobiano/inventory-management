@@ -1,6 +1,8 @@
 import { FaPlus } from "react-icons/fa";
-import { addedProduct } from "@/contants/addedproductData";
+
+import { useGetProducts } from "@/hooks/product/getProduct";
 const AddedProducts = () => {
+  const { data: addedProducts } = useGetProducts();
   return (
     <section className="bg-white shadow-lg rounded-md">
       <div className="flex items-center gap-2 bg-[#8FABD4] p-2 rounded-t-md  border-b-4 border-primary">
@@ -8,25 +10,25 @@ const AddedProducts = () => {
         <h1 className="text-lg text-white">RECCENTLY ADDED PRODUCTS</h1>
       </div>
 
-      {addedProduct.map((item, index) => (
-        <div key={index} className="border p-5">
+      {addedProducts?.map((item) => (
+        <div key={item.id} className="border p-5">
           <div className="flex justify-between">
             {/* LABEL + IMAGES */}
             <div className="flex items-center gap-2">
               <img
-                src={item.image}
+                src={`http://localhost/api-inventory/uploads/${item.image}`}
                 alt=""
                 className="size-15 border mt-2 rounded-2xl"
               />
-              <label className="text-sm">{item.title}</label>
+              <label className="text-sm">{item.name}</label>
             </div>
 
             {/* PRICE + INITIAL */}
             <div className="flex flex-col items-center space-y-7 text-sm ">
               <span className="bg-[#FFE1AF] px-3 font-bold py-1 rounded-full">
-                ₱{item.price}
+                ₱{item.total}
               </span>
-              <span className="">{item.initial}</span>
+              {/* <span className="">{item.initial}</span> */}
             </div>
           </div>
         </div>
