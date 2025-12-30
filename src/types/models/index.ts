@@ -1,5 +1,6 @@
 export * from "./auth/Auth";
 export * from "./product/getProduct";
+export * from "./product/getExpiredProducts";
 
 // USER
 export * from "./user/getUsers";

@@ -1,5 +1,4 @@
 import { RiPassExpiredFill } from "react-icons/ri";
-import { expiringProduct } from "@/contants/expiringproductsData";
 import {
   Table,
   TableBody,
@@ -8,6 +7,9 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+
+// HOOK
+import { useGetExpiredProducts } from "@/hooks/product/getExpiredProducts";
 
 const label = [
   "Product",
@@ -18,6 +20,7 @@ const label = [
 ];
 
 const ExpiringProduct = () => {
+  const { data: expiredProducts } = useGetExpiredProducts();
   return (
     <section className="shadow-lg rounded-md">
       <div className="flex items-center text-white gap-2 bg-[#8FABD4] p-2 rounded-t-md  border-b-4 border-primary">
@@ -39,16 +42,18 @@ const ExpiringProduct = () => {
             </TableRow>
           </TableHeader>
           <TableBody className="">
-            {expiringProduct.map((item, index) => (
+            {expiredProducts?.map((item, index) => (
               <TableRow key={index} className="">
-                <TableCell className="font-medium ">{item.product}</TableCell>
-                <TableCell className="font-medium pl-5">
-                  {item.stocks}
-                </TableCell>
-                <TableCell className="font-medium ">{item.dateAdded}</TableCell>
-                <TableCell className="font-medium ">{item.exprdIn}</TableCell>
+                <TableCell className="font-medium ">{item.name}</TableCell>
+                <TableCell className="font-medium pl-5">{item.stock}</TableCell>
                 <TableCell className="font-medium ">
-                  {item.expirationDate}
+                  {item.date_added}
+                </TableCell>
+                <TableCell className="font-medium ">
+                  {item.expired_in}
+                </TableCell>
+                <TableCell className="font-medium ">
+                  {item.expiration_date}
                 </TableCell>
               </TableRow>
             ))}

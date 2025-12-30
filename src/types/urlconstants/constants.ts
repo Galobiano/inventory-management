@@ -8,6 +8,7 @@ export const GET_LATEST_SALES = "sales/lastest-sales.php";
 export const GET_HIGHEST_SELLING_PRODUCTS =
   "sales/highest-selling-products.php";
 export const GET_TOP_SELLING_PRODUCTS = "sales/top-selling-products.php";
+export const GET_EXPIRED_PRODUCTS = "product/expire-date-product.php";
 
 // ADD
 export const ADD_USER = "user/user.php";
