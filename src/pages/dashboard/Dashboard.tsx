@@ -9,17 +9,17 @@ const Dashboard = () => {
     <div className="pt-10">
       <OverView />
       <div className="grid lg:grid-cols-3 gap-10 pt-10">
-        <div className="bg-white     p-5 shadow-2xl rounded-2xl">
+        <div className="">
           <HighestSellingProduct />
         </div>
 
-        <div className="bg-white  min-h-sm  p-5 shadow-2xl rounded-2xl">
+        <div className="">
           <AddedProducts />
         </div>
-        <div className="bg-white p-5 shadow-2xl rounded-2xl">
+        <div className="">
           <LatestSales />
         </div>
-        <div className="bg-white w-full min-w-3xl   p-5 shadow-2xl rounded-2xl">
+        <div className=" min-w-3xl   ">
           <ExpiringProduct />
         </div>
       </div>

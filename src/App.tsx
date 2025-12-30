@@ -5,7 +5,7 @@ import Weblayout from "./components/Weblayout";
 import Dashboard from "./pages/dashboard/Dashboard";
 import UserManagement from "./pages/userManagement/UserManagement";
 import Product from "./pages/product/Product";
-import SaleReport from "./pages/report/SaleReport";
+import SaleReport from "./pages/sales/SaleReport";
 import AuthProvider from "./context/AuthContext";
 import ProfilePage from "./pages/profile/ProfilePage";
 

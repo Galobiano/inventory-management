@@ -2,7 +2,7 @@ import { FaPlus } from "react-icons/fa";
 import { addedProduct } from "@/contants/addedproductData";
 const AddedProducts = () => {
   return (
-    <section>
+    <section className="bg-white shadow-lg rounded-md">
       <div className="flex items-center gap-2 bg-[#8FABD4] p-2 rounded-t-md  border-b-4 border-primary">
         <FaPlus className="text-white" />
         <h1 className="text-lg text-white">RECCENTLY ADDED PRODUCTS</h1>

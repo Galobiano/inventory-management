@@ -9,7 +9,11 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
+import { useGetHighestSellingProducts } from "@/hooks/sales/highestSellingProducts";
+
 const HighestSellingProduct = () => {
+  const { data: highestSellingProductsData } = useGetHighestSellingProducts();
+
   return (
     <section className=" shadow-lg rounded-md">
       <div className="flex items-center gap-2  text-white bg-[#8FABD4] p-2 rounded-t-md  border-b-4 border-primary">
@@ -29,14 +33,14 @@ const HighestSellingProduct = () => {
             </TableRow>
           </TableHeader>
           <TableBody className="">
-            {highestSelling.map((item, index) => (
-              <TableRow key={index} className="">
+            {highestSellingProductsData?.map((item) => (
+              <TableRow key={item.title} className="">
                 <TableCell className="font-medium ">{item.title}</TableCell>
                 <TableCell className="font-medium pl-5">
-                  {item.totalSold}
+                  {item.total_revenue}
                 </TableCell>
                 <TableCell className="font-medium pl-12">
-                  {item.TotalQuantity}
+                  {item.total_quantity}
                 </TableCell>
               </TableRow>
             ))}

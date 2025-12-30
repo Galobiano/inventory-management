@@ -22,7 +22,14 @@ import {
   FaCalendarAlt,
 } from "react-icons/fa";
 
+// hook
+import { useGetRecentSales } from "@/hooks/sales/recentSales";
+import { useGetTopSellingProducts } from "@/hooks/sales/TopSellingProducts";
+
 const SaleReport = () => {
+  const { data: latestSalesData } = useGetRecentSales();
+  const { data: topSellingProductsData } = useGetTopSellingProducts();
+
   // Calculate summary statistics
   const totalSales = latestSale.reduce(
     (sum, sale) => sum + parseFloat(sale.totalSale),
@@ -96,20 +103,18 @@ const SaleReport = () => {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>#</TableHead>
                 <TableHead>Product Name</TableHead>
-                <TableHead>Date</TableHead>
+                <TableHead className="tex-center">Date</TableHead>
                 <TableHead className="text-right">Total Sale</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
-              {latestSale.map((sale) => (
-                <TableRow key={sale.no}>
-                  <TableCell className="font-medium">{sale.no}</TableCell>
-                  <TableCell>{sale.productName}</TableCell>
-                  <TableCell>{sale.date}</TableCell>
+              {latestSalesData?.map((sale) => (
+                <TableRow key={sale.title}>
+                  <TableCell className="font-medium">{sale.title}</TableCell>
+                  <TableCell>{sale.created_at}</TableCell>
                   <TableCell className="text-right font-medium">
-                    ₱{sale.totalSale}
+                    ₱{sale.total_price}
                   </TableCell>
                 </TableRow>
               ))}
@@ -136,14 +141,14 @@ const SaleReport = () => {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {highestSelling.map((product, index) => (
-                <TableRow key={index}>
+              {topSellingProductsData?.map((product) => (
+                <TableRow key={product.title}>
                   <TableCell className="font-medium">{product.title}</TableCell>
                   <TableCell className="text-right">
-                    {product.totalSold}
+                    {product.total_sold}
                   </TableCell>
                   <TableCell className="text-right">
-                    {product.TotalQuantity}
+                    {product.remaining_stock}
                   </TableCell>
                 </TableRow>
               ))}

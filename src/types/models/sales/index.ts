@@ -2,7 +2,7 @@
 export interface IRECENTSALES {
   title: string;
   total_price: string;
-  createddAt: string;
+  created_at: string;
 }
 export interface IRECENTSALERESPONSE {
   success: boolean;
@@ -37,7 +37,7 @@ export interface IHIGHESTSELLINGPRODUCTSRESPONSE {
 // TOP SELLING PRODUCTS
 export interface ITOPSELLINGPRODUCTS {
   title: string;
-  reamining_stock: string;
+  remaining_stock: string;
   total_sold: string;
 }
 
