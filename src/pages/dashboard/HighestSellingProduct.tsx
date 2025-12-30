@@ -1,4 +1,3 @@
-import { highestSelling } from "@/contants/highestsellingData";
 import { BsBarChartFill } from "react-icons/bs";
 import {
   Table,
