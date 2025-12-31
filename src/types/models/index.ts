@@ -5,7 +5,7 @@ export * from "./product/getExpiredProducts";
 // USER
 export * from "./user/getUsers";
 export * from "./user/addUser";
-export * from "./user/updateProfile";
+export * from "./user/profile";
 
 // CATEGORY
 export * from "./category/addCategory";

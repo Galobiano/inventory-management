@@ -9,6 +9,7 @@ export const GET_HIGHEST_SELLING_PRODUCTS =
   "sales/highest-selling-products.php";
 export const GET_TOP_SELLING_PRODUCTS = "sales/top-selling-products.php";
 export const GET_EXPIRED_PRODUCTS = "product/expire-date-product.php";
+export const GET_PROFILE = "user/get-profile.php";
 
 // ADD
 export const ADD_USER = "user/user.php";
