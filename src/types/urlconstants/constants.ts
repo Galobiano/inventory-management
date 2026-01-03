@@ -22,3 +22,4 @@ export const DELETE_PRODUCT = "product/delete-product.php";
 
 // UPDATE
 export const UPDATE_PROFILE = "user/update-profile.php";
+export const UPDATE_PROFILE_PICTURE = "user/update-profile-picture.php";
